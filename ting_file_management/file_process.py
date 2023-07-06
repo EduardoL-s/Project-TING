@@ -25,13 +25,13 @@ def remove(instance):
         return
 
     removed_content = instance.dequeue()
-    removed_content_path = removed_content["nome_do_arquivo"]
-    print(f"Arquivo {removed_content_path} removido com sucesso",
-     file=sys.stdout)
+    content_path = removed_content["nome_do_arquivo"]
+    print(f"Arquivo {content_path} removido com sucesso", file=sys.stdout)
 
 
 def file_metadata(instance, position):
     try:
         result = instance.search(position)
         print(result, file=sys.stdout)
-    except IndexError: print('Posição inválida', file=sys.stderr)
+    except IndexError:
+        print('Posição inválida', file=sys.stderr)
